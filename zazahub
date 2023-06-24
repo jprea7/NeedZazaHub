@@ -133,7 +133,7 @@ elseif game.PlaceId == 3823781113 then
       }
    })
 
-   local MainTab = Window:CreateTab("🏠Main", ) -- Title, Image
+   local MainTab = Window:CreateTab("🏠Main") -- Title, Image
    local Section = MainTab:CreateSection("Automatics")
 
    Rayfield:Notify({
