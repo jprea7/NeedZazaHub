@@ -1,1 +1,177 @@
+getgenv().SecureMode = true
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+if game.PlaceId == 155615604 then  
+   local Window = Rayfield:CreateWindow({
+      Name = "Prison Life ┃ Zaza Hub",
+      LoadingTitle = "Zaza Hub",
+      LoadingSubtitle = "by nexcto",
+      ConfigurationSaving = {
+         Enabled = true,
+         FolderName = nil, -- Create a custom folder for your hub/game
+         FileName = "ZazaHub"
+      },
+      Discord = {
+         Enabled = false,
+         Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+         RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+      },
+      KeySystem = true, -- Set this to true to use our key system
+      KeySettings = {
+         Title = "key",
+         Subtitle = "key is hello",
+         Note = "No method of obtaining the key is provided",
+         FileName = "zakey", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+         SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+         GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+         Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+      }
+   })
 
+
+   local PlayerTab = Window:CreateTab("🧑Player", 4483362458) -- Title, Image
+   local Section = PlayerTab:CreateSection("Movement")
+
+   Rayfield:Notify({
+      Title = "Script Executed!",
+      Content = "balz",
+      Duration = 5,
+      Image = 4483362458,
+      Actions = { -- Notification Buttons
+         Ignore = {
+            Name = "Okay!",
+            Callback = function()
+            print("The user tapped Okay!")
+         end
+      },
+   },
+   })
+
+
+   local Slider = PlayerTab:CreateSlider({
+      Name = "Walkspeed",
+      Range = {5, 500},
+      Increment = 1,
+      Suffix = "WS",
+      CurrentValue = 16,
+      Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+      Callback = function(Value)
+         game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+      end,
+   })
+
+   local Slider = PlayerTab:CreateSlider({
+      Name = "Jump Power",
+      Range = {16, 500},
+      Increment = 1,
+      Suffix = "Power",
+      CurrentValue = 16,
+      Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+      Callback = function(Value)
+         game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+      end,
+   })
+
+
+
+   -- MAIN
+   local MainTab = Window:CreateTab("🏠Main", 4483362458) -- Title, Image
+   local Section = MainTab:CreateSection("Main")
+
+
+
+   local Button = MainTab:CreateButton({
+      Name = "Infinite Yield",
+      Callback = function()
+         loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))() 
+      end,
+   })
+
+   local Button = MainTab:CreateButton({
+      Name = "ESP",
+      Callback = function()
+         
+      end,
+   })
+   -- OTHER
+   local OtherTab = Window:CreateTab("💿Other", 4483362458) -- Title, Image
+
+   local Section = OtherTab:CreateSection("Other")
+
+
+   local Button = OtherTab:CreateButton({
+      Name = "Destroy Doors",
+      Callback = function()
+         game.Workspace.Doors:Destroy()
+      end,
+   })
+elseif game.PlaceId == 3823781113 then
+   
+   
+   local Window = Rayfield:CreateWindow({
+      Name = "[EASTER] Saber Simulator ┃ Zaza Hub",
+      LoadingTitle = "Zaza Hub",
+      LoadingSubtitle = "by nexcto",
+      ConfigurationSaving = {
+         Enabled = true,
+         FolderName = nil, -- Create a custom folder for your hub/game
+         FileName = "ZazaHub"
+      },
+      Discord = {
+         Enabled = false,
+         Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+         RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+      },
+      KeySystem = true, -- Set this to true to use our key system
+      KeySettings = {
+         Title = "Untitled",
+         Subtitle = "Key is Hello",
+         Note = "No method of obtaining the key is provided",
+         FileName = "zakey", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+         SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+         GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+         Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+      }
+   })
+
+   local MainTab = Window:CreateTab("🏠Main", ) -- Title, Image
+   local Section = MainTab:CreateSection("Automatics")
+
+   Rayfield:Notify({
+      Title = "Script Executed!",
+      Content = "balz",
+      Duration = 5,
+      Image = 4483362458,
+      Actions = { -- Notification Buttons
+         Ignore = {
+            Name = "Okay!",
+            Callback = function()
+            print("The user tapped Okay!")
+         end
+      },
+   },
+   })
+
+
+   local Button = MainTab:CreateButton({
+      Name = "Auto Click",
+      Callback = function()
+         _G.autoTap = true
+         while _G.autoTap == true do
+         game:GetService("ReplicatedStorage").Events.Clicked:FireServer()
+             wait()
+         end
+      end,
+   })
+
+
+   local Button = MainTab:CreateButton({
+      Name = "Stop Auto Click",
+      Callback = function()
+         _G.autoTap = false
+         while _G.autoTap == true do
+         game:GetService("ReplicatedStorage").Events.Clicked:FireServer()
+             wait()
+         end
+      end,
+   })
+end
